@@ -192,7 +192,7 @@ const CommunitySafety = () => {
 
       console.log('Submitting data:', submitData);
 
-      const response = await fetch('http://localhost:5000/api/reports/create', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/reports/create`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

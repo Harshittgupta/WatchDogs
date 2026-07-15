@@ -154,7 +154,7 @@ const DriverDashboard = () => {
         return;
       }
 
-      const response = await fetch('http://localhost:5000/api/driver/auth/me', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/driver/auth/me`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -236,7 +236,7 @@ const DriverDashboard = () => {
     try {
       const token = localStorage.getItem('driverToken');
       
-      const response = await fetch('http://localhost:5000/api/driver/auth/toggle-online', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/driver/auth/toggle-online`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -280,7 +280,7 @@ const DriverDashboard = () => {
 
       const token = localStorage.getItem('driverToken');
       
-      const response = await fetch('http://localhost:5000/api/driver/auth/toggle-online', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/driver/auth/toggle-online`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${token}`,

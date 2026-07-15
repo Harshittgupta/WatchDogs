@@ -115,7 +115,7 @@ const DriverRegistration = () => {
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost:5000/api/driver/auth/register', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/driver/auth/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -171,7 +171,7 @@ const DriverRegistration = () => {
 
       const token = localStorage.getItem('driverToken');
 
-      const response = await fetch('http://localhost:5000/api/driver/auth/upload-documents', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/driver/auth/upload-documents`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`

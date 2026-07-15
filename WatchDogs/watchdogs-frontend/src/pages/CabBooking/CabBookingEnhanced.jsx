@@ -202,7 +202,7 @@ const CabBookingEnhanced = () => {
     try {
       const token = localStorage.getItem('token');
       
-      const response = await fetch('http://localhost:5000/api/rides/active', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/rides/active`, {
         headers: { 
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -274,7 +274,7 @@ const CabBookingEnhanced = () => {
     try {
       const token = localStorage.getItem('token');
       
-      const response = await fetch('http://localhost:5000/api/rides/estimate', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/rides/estimate`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -321,7 +321,7 @@ const CabBookingEnhanced = () => {
     try {
       const token = localStorage.getItem('token');
       
-      const response = await fetch('http://localhost:5000/api/rides/book', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/rides/book`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -439,7 +439,7 @@ const CabBookingEnhanced = () => {
     try {
       const token = localStorage.getItem('token');
       
-      const response = await fetch('http://localhost:5000/api/rides/history', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/rides/history`, {
         headers: { 
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'

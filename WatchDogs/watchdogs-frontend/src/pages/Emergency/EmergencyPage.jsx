@@ -59,7 +59,7 @@ const EmergencyPage = () => {
   const checkActiveEmergency = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5000/api/emergency/status', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/emergency/status`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       const data = await response.json();
@@ -103,7 +103,7 @@ const EmergencyPage = () => {
       // Get address from coordinates
       const locationName = await getAddressFromCoords(location.latitude, location.longitude);
 
-      const response = await fetch('http://localhost:5000/api/emergency/trigger', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/emergency/trigger`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

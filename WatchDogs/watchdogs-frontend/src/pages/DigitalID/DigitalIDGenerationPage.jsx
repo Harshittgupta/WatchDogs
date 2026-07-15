@@ -50,7 +50,7 @@ const DigitalIDGenerationPage = () => {
       const token = localStorage.getItem('token');
       console.log('🔍 Checking for existing digital ID...');
       
-      const response = await fetch('http://localhost:5000/api/digital-id/status', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/digital-id/status`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       const data = await response.json();
@@ -59,7 +59,7 @@ const DigitalIDGenerationPage = () => {
       
       if (data.hasDigitalId) {
         // Fetch full digital ID
-        const idResponse = await fetch('http://localhost:5000/api/digital-id/me', {
+        const idResponse = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/digital-id/me`, {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         const idData = await idResponse.json();
@@ -334,7 +334,7 @@ const DigitalIDGenerationPage = () => {
 
       console.log('Submitting data:', JSON.stringify(submitData, null, 2));
 
-      const response = await fetch('http://localhost:5000/api/digital-id/generate', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/digital-id/generate`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
